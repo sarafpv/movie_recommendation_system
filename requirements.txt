@@ -1,0 +1,11 @@
+Django
+numpy
+pandas
+scikit-learn
+requests
+python-dotenv
+rapidfuzz
+Pillow
+nltk
+
+pip freeze > requirements.txt

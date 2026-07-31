@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ==================== META TAGS ==================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ==================== PAGE TITLE ==================== -->
+    <title>
+        {% block title %}
+            Movie Recommendation System
+        {% endblock %}
+    </title>
+
+    <!-- ==================== GOOGLE FONT ==================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- ==================== ICONS ==================== -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- ==================== GLOBAL CSS ==================== -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <!-- ==================== PAGE SPECIFIC CSS ==================== -->
+    {% block extra_css %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+
+                <a href="{% url 'home' %}">
+                    🎬 Movie Recommendation
+                </a>
+
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="{% url 'home' %}">
+                        Home
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+
+    <main>
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>Movie Recommendation System</h3>
+
+            <p>
+                Built using Django, Scikit-learn, TF-IDF, Cosine Similarity and TMDB API.
+            </p>
+
+            <p>
+                © <span id="current-year"></span> All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- ==================== GLOBAL JAVASCRIPT ==================== -->
+
+    <script src="{% static 'js/base.js' %}"></script>
+
+    <!-- ==================== PAGE SPECIFIC JAVASCRIPT ==================== -->
+
+    {% block extra_js %}
+    {% endblock %}
+
+</body>
+
+</html>

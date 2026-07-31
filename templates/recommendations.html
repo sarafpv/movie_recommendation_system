@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Recommendations | Movie Recommendation System
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/recommendations.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="recommendation-section">
+
+    <div class="container">
+
+        <div class="page-heading">
+
+            <h1>Recommended Movies</h1>
+
+            {% if searched_movie %}
+            <p>
+                Results for
+                <span class="movie-name">
+                    "{{ searched_movie }}"
+                </span>
+            </p>
+            {% endif %}
+
+        </div>
+
+        {% if error %}
+
+        <div class="no-results">
+
+            <h2>{{ error }}</h2>
+
+            <p>
+                We couldn't find the movie you searched for.
+                Please check the spelling and try again.
+            </p>
+
+            <a href="{% url 'home' %}" class="details-btn">
+                Search Again
+            </a>
+
+        </div>
+
+        {% elif recommendations %}
+
+        <div class="movie-grid">
+
+            {% for movie in recommendations %}
+
+            <div class="movie-card">
+
+                <div class="movie-info">
+
+                    <h2>{{ movie.title }}</h2>
+
+                    <p class="rating">
+                        ⭐ {{ movie.rating }}/10
+                    </p>
+
+                    <p class="genre">
+                        {{ movie.genres }}
+                    </p>
+
+                    {% if movie.tagline %}
+                    <p class="tagline">
+                        <strong>{{ movie.tagline }}</strong>
+                    </p>
+                    {% endif %}
+
+                    <p class="popularity">
+                        🔥 Popularity : {{ movie.popularity }}
+                    </p>
+
+                    <p class="overview">
+                        {{ movie.overview|truncatechars:180 }}
+                    </p>
+
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="no-results">
+
+            <h2>No Recommendations Found</h2>
+
+            <p>
+                Try searching for another movie.
+            </p>
+
+            <a href="{% url 'home' %}" class="details-btn">
+
+                Search Again
+
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/recommendations.js' %}"></script>
+{% endblock %}

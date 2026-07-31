@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home | Movie Recommendation System
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Find Movies You'll Love
+        </h1>
+
+        <p>
+            <p>
+                Enter the name of any movie and discover the top 5 similar movies.
+            </p>
+        </p>
+
+        <form action="{% url 'recommend' %}" method="POST" class="search-form">
+
+            {% csrf_token %}
+
+            <input
+                type="text"
+                name="movie"
+                placeholder="Search for a movie..."
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit">
+                Recommend
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<section class="features">
+
+    <h2>
+        Features
+    </h2>
+
+    <div class="feature-container">
+
+        <div class="feature-card">
+
+            <div class="icon">
+                🎬
+            </div>
+
+            <h3>
+                Smart Recommendations
+            </h3>
+
+            <p>
+                Get recommendations based on movie content using
+                TF-IDF and Cosine Similarity.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="icon">
+                ⭐
+            </div>
+
+            <h3>
+                TMDB Integration
+            </h3>
+
+            <p>
+                View movie posters, ratings, release dates,
+                genres and more.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="icon">
+                🚀
+            </div>
+
+            <h3>
+                Fast Search
+            </h3>
+
+            <p>
+                Quickly search thousands of movies and
+                receive recommendations instantly.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

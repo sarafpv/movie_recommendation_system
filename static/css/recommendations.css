@@ -1,0 +1,326 @@
+/* ==========================================================
+                RECOMMENDATION PAGE
+========================================================== */
+
+.recommendation-section {
+
+    width: 90%;
+    max-width: 1400px;
+    margin: 60px auto;
+
+}
+
+
+/* ==========================================================
+                    PAGE HEADER
+========================================================== */
+
+.page-heading {
+
+    text-align: center;
+    margin-bottom: 50px;
+
+}
+
+.page-heading h1 {
+
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--text);
+
+}
+
+.page-heading p {
+
+    font-size: 1.1rem;
+    color: var(--secondary-text);
+
+}
+
+.movie-name {
+
+    color: var(--primary);
+    font-weight: 600;
+
+}
+
+
+/* ==========================================================
+                    MOVIE GRID
+========================================================== */
+
+.movie-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 35px;
+
+}
+
+
+/* ==========================================================
+                    MOVIE CARD
+========================================================== */
+
+.movie-card {
+
+    background: var(--surface);
+
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow);
+
+    transition: var(--transition);
+
+}
+
+.movie-card:hover {
+
+    transform: translateY(-8px);
+
+}
+
+
+/* ==========================================================
+                    POSTER
+========================================================== */
+
+.poster {
+
+    width: 100%;
+    height: 470px;
+    overflow: hidden;
+
+}
+
+.poster img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: 0.5s;
+
+}
+
+.movie-card:hover img {
+
+    transform: scale(1.05);
+
+}
+
+
+/* ==========================================================
+                    MOVIE INFO
+========================================================== */
+
+.movie-info {
+
+    padding: 25px;
+
+}
+
+.movie-info h2 {
+
+    margin-bottom: 15px;
+
+    font-size: 1.5rem;
+
+    color: var(--text);
+
+}
+
+.rating {
+
+    color: gold;
+
+    font-weight: 600;
+
+    margin-bottom: 12px;
+
+}
+
+.genre {
+
+    color: var(--primary);
+
+    margin-bottom: 10px;
+
+    font-weight: 500;
+
+}
+
+.release {
+
+    color: var(--secondary-text);
+
+    margin-bottom: 20px;
+
+}
+
+.overview {
+
+    color: var(--secondary-text);
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+    text-align: justify;
+
+}
+
+
+/* ==========================================================
+                DETAILS BUTTON
+========================================================== */
+
+.details-btn {
+
+    display: inline-block;
+
+    background: var(--primary);
+
+    color: white;
+
+    padding: 12px 25px;
+
+    border-radius: var(--radius);
+
+    transition: var(--transition);
+
+    font-weight: 600;
+
+}
+
+.details-btn:hover {
+
+    background: var(--primary-hover);
+
+}
+
+
+/* ==========================================================
+                NO RESULTS
+========================================================== */
+
+.no-results {
+
+    background: var(--surface);
+
+    padding: 50px;
+
+    border-radius: var(--radius);
+
+    text-align: center;
+
+    box-shadow: var(--shadow);
+
+}
+
+.no-results h2 {
+
+    margin-bottom: 20px;
+
+}
+
+.no-results p {
+
+    color: var(--secondary-text);
+
+    margin-bottom: 30px;
+
+}
+
+.no-results a {
+
+    display: inline-block;
+
+    background: var(--primary);
+
+    padding: 12px 25px;
+
+    border-radius: var(--radius);
+
+    color: white;
+
+    transition: var(--transition);
+
+}
+
+.no-results a:hover {
+
+    background: var(--primary-hover);
+
+}
+
+
+/* ==========================================================
+                RESPONSIVE
+========================================================== */
+
+@media (max-width:1024px){
+
+    .movie-grid{
+
+        grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    }
+
+}
+
+
+@media (max-width:768px){
+
+    .page-heading h1{
+
+        font-size:2.2rem;
+
+    }
+
+    .poster{
+
+        height:420px;
+
+    }
+
+}
+
+
+@media (max-width:480px){
+
+    .recommendation-section{
+
+        width:95%;
+
+    }
+
+    .page-heading h1{
+
+        font-size:1.8rem;
+
+    }
+
+    .movie-info{
+
+        padding:20px;
+
+    }
+
+    .movie-info h2{
+
+        font-size:1.3rem;
+
+    }
+
+    .poster{
+
+        height:350px;
+
+    }
+
+}
